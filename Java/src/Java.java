@@ -38,8 +38,9 @@ public class Java {
                 }
                 visited = new boolean[n];
                 int m = str2int(line[1]);
-                int x = str2int(line[2]);
-                int y = str2int(line[3]);
+                int C_lib = str2int(line[2]);
+                int C_road = str2int(line[3]);
+                System.out.println("C_lib= "+C_lib+" C_road= "+C_road);
                 for (int a1 = 0; a1 < m; a1++) {
                    line = br.readLine().split(" ");
                     int city_1 = str2int(line[0]);
@@ -47,9 +48,7 @@ public class Java {
                     adj.get(city_1 - 1).add(city_2 - 1);
                     adj.get(city_2 - 1).add(city_1 - 1);
                 }
-              
-                System.out.println("kết qủa là ="+roadsAndLibraries(x, y)); //sao ko ra kết quả nhỉ?
-                  
+                System.out.println("kết qủa là ="+roadsAndLibraries(C_lib, C_road)); //sao ko ra kết quả nhỉ?
             }
 
             //Bước 3: Đóng luồng
@@ -60,17 +59,17 @@ public class Java {
         }
     }
 
-    private static long roadsAndLibraries(int x, int y) {
+    private static long roadsAndLibraries(int C_lib, int C_road) {
         long cost = 0;
-        System.out.println("adj="+adj);
+        System.out.println("C_lib= "+C_lib+" C_road= "+C_road+" adj="+adj);
         for (int i = 0; i < adj.size(); i++) {
             if (!visited[i]) {
                 count = 0;
                 dfs(i);
-                if (x > y) {
-                    cost += x + y * (count - 1);
+                if (C_lib > C_road) {
+                    cost += C_lib + C_road * (count - 1);
                 } else {
-                    cost += x * count;
+                    cost +=C_lib * count;
                 }
             }
         }

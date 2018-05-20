@@ -13,6 +13,5 @@ if __name__ == "__main__":
         for cities_i in range(m):
             cities_t = [int(cities_temp) for cities_temp in data.readline().strip().split(' ')]
             cities.append(cities_t)
-        print(cities_i,"\n",cities_t)
         result = roadsAndLibraries(n, c_lib, c_road, cities)
         print(result)
