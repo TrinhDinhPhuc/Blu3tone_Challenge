@@ -4,4 +4,4 @@
   <img width="850" height="400" src="https://github.com/TrinhDinhPhuc/Blu3tone_Challenge/blob/master/background.png">
 </p>   
 
-Reliable Partner in Research, Innovation, and Product Development
+###  Reliable Partner in Research, Innovation, and Product Development
