@@ -32,7 +32,6 @@ public class Java {
                }
                notfirst=true;
                 int n = str2int(line[0]);
- 
                 adj = new ArrayList<>();
                 for (int i = 0; i < n; i++) {
                     adj.add(new ArrayList<>());
@@ -63,7 +62,7 @@ public class Java {
 
     private static long roadsAndLibraries(int x, int y) {
         long cost = 0;
-
+        System.out.println("adj="+adj);
         for (int i = 0; i < adj.size(); i++) {
             if (!visited[i]) {
                 count = 0;
@@ -82,7 +81,6 @@ public class Java {
     private static void dfs(int i) {
         visited[i] = true;
         count++;
-
         List<Integer> list = adj.get(i);
         for (int j = 0; j < list.size(); j++) {
             if (!visited[list.get(j)]) {
