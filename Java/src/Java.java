@@ -16,7 +16,7 @@ public class Java {
     public static void main(String[] args) {
         try {
             //Bước 1: Tạo đối tượng luồng và liên kết nguồn dữ liệu
-            File f = new File("C:\\Users\\USER\\Documents\\Py_Project\\Blu3tone\\Java\\src\\sample_input.txt");
+            File f = new File("C:\\Users\\USER\\Documents\\Py_Project\\Blu3tone\\Res\\input.txt");
             FileReader fr = new FileReader(f);
             //Bước 2: Đọc dữ liệu
             BufferedReader br = new BufferedReader(fr);
@@ -35,9 +35,6 @@ public class Java {
                     adj.add(new ArrayList<>());
                 }
                 visited = new boolean[n];
-                for (int i = 0; i < adj.size(); i++)
-                    System.out.println("visited [i]"+visited[i]);
-
                 int m = str2int(line[1]);
                 int C_lib = str2int(line[2]);
                 int C_road = str2int(line[3]);
@@ -61,7 +58,6 @@ public class Java {
         long cost = 0;
         for (int i = 0; i < adj.size(); i++) { 
             if (!visited[i]) {
-                System.out.println("visited[i]"+visited[i]);
                 count = 0;
                 dfs(i);
                 if (C_lib > C_road) {

@@ -30,7 +30,7 @@ class Roads_and_Libs():
 
 def main():
     exam = Roads_and_Libs()
-    data = open("../Res/sample_input.txt", "r")
+    data = open("../Res/input.txt", "r")
     q = int(data.readline())
     for a0 in range(q):
         n, m, c_lib, c_road = data.readline().strip().split(' ')
