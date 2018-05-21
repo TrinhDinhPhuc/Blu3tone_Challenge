@@ -43,7 +43,7 @@ def main():
         for i in range(1, len(exam.cities), 1):
             exam.cities[i][0]= abs((exam.cities[i-1][0]+exam.cities[i-1][1]) - exam.cities[i][0])
             exam.cities[i][1]= abs((exam.cities[i-1][0]+exam.cities[i-1][1])- exam.cities[i][1])
-        exam.visited = list(map(float, [False]*n))
+        exam.visited = [False] * n
         #print(sys.maxsize < n)
         result = exam.roadsAndLibraries(exam,c_lib, c_road)
         print("Result = ",result)
