@@ -13,13 +13,11 @@ public class Java {
     private static int str2int(String s) {
         return Integer.parseInt(s.trim());
     }
-
     public static void main(String[] args) {
         try {
             //Bước 1: Tạo đối tượng luồng và liên kết nguồn dữ liệu
             File f = new File("C:\\Users\\USER\\Documents\\Py_Project\\Blu3tone\\Java\\src\\sample_input.txt");
             FileReader fr = new FileReader(f);
-
             //Bước 2: Đọc dữ liệu
             BufferedReader br = new BufferedReader(fr);
             int q = str2int(br.readLine());//doc dong 1
@@ -37,10 +35,12 @@ public class Java {
                     adj.add(new ArrayList<>());
                 }
                 visited = new boolean[n];
+                for (int i = 0; i < adj.size(); i++)
+                    System.out.println("visited [i]"+visited[i]);
+
                 int m = str2int(line[1]);
                 int C_lib = str2int(line[2]);
                 int C_road = str2int(line[3]);
-                System.out.println("C_lib= "+C_lib+" C_road= "+C_road);
                 for (int a1 = 0; a1 < m; a1++) {
                    line = br.readLine().split(" ");
                     int city_1 = str2int(line[0]);
@@ -50,7 +50,6 @@ public class Java {
                 }
                 System.out.println("kết qủa là ="+roadsAndLibraries(C_lib, C_road)); //sao ko ra kết quả nhỉ?
             }
-
             //Bước 3: Đóng luồng
             fr.close();
             br.close();
@@ -58,12 +57,11 @@ public class Java {
             System.out.println(ex);
         }
     }
-
     private static long roadsAndLibraries(int C_lib, int C_road) {
         long cost = 0;
-        System.out.println("C_lib= "+C_lib+" C_road= "+C_road+" adj="+adj);
-        for (int i = 0; i < adj.size(); i++) {
+        for (int i = 0; i < adj.size(); i++) { 
             if (!visited[i]) {
+                System.out.println("visited[i]"+visited[i]);
                 count = 0;
                 dfs(i);
                 if (C_lib > C_road) {
@@ -73,7 +71,6 @@ public class Java {
                 }
             }
         }
-
         return cost;
     }
 
