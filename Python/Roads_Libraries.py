@@ -1,6 +1,7 @@
 #!/bin/python3
 import sys
 import time
+import numpy as np
 class Roads_and_Libs():
     cities = []
     visited=[]
@@ -44,7 +45,7 @@ def main():
             exam.cities[i][0]= abs((exam.cities[i-1][0]+exam.cities[i-1][1]) - exam.cities[i][0])
             exam.cities[i][1]= abs((exam.cities[i-1][0]+exam.cities[i-1][1])- exam.cities[i][1])
         exam.visited = [False] * n
-        #print(sys.maxsize < n)
+        #exam.visited = np.full((n), False)
         result = exam.roadsAndLibraries(exam,c_lib, c_road)
         print("Result = ",result)
 
