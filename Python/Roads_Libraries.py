@@ -1,5 +1,6 @@
 #!/bin/python3
 import sys
+import time
 class Roads_and_Libs():
     cities = []
     visited=[]
@@ -30,7 +31,7 @@ class Roads_and_Libs():
 
 def main():
     exam = Roads_and_Libs()
-    data = open("../Res/input.txt", "r")
+    data = open("../Res/sample_input.txt", "r")
     q = int(data.readline())
     for a0 in range(q):
         n, m, c_lib, c_road = data.readline().strip().split(' ')
@@ -42,8 +43,13 @@ def main():
         for i in range(1, len(exam.cities), 1):
             exam.cities[i][0]= abs((exam.cities[i-1][0]+exam.cities[i-1][1]) - exam.cities[i][0])
             exam.cities[i][1]= abs((exam.cities[i-1][0]+exam.cities[i-1][1])- exam.cities[i][1])
-        exam.visited = [False] * n
+        exam.visited = list(map(float, [False]*n))
+        #print(sys.maxsize < n)
         result = exam.roadsAndLibraries(exam,c_lib, c_road)
         print("Result = ",result)
+
 if __name__=="__main__":
+    t0 = time.time()
     main()
+    t1 = time.time()
+    print("Running_time: {0}".format(t1-t0))
